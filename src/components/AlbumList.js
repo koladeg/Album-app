@@ -11,7 +11,6 @@ import REACT_APP_INSTA_API_KEY from '../config_keys'
 
 // components for app
 const { height } = Dimensions.get("window");
-const ACCESS_TOKEN = '6787209045.dafe93c.36d90099478342788a6e8ffe7730bf6a'
 
 class AlbumList extends Component {
   state = {
