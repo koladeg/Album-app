@@ -9,7 +9,6 @@ A dynamic test concept app to sell beats produced by afrobeatsfactory
 * & much more
 
 # Demo
-
 ![](https://media.giphy.com/media/YQLrYuUZA3z5RARrnD/giphy.gif)
 
 
