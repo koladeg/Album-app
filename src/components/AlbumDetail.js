@@ -1,16 +1,21 @@
 //import libraries for particular albums
-import React from 'react';
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, Image, TouchableOpacity, TouchableHighlight } from 'react-native';
 import { Icon, Right, Left } from 'native-base';
 import { LinearGradient } from 'expo-linear-gradient';
 import Card from './Card';
 import CardItem from './CardItem';
 
 // the component of this module
-const AlbumDetail = ({ beat, onItemPress } ) => {
+const AlbumDetail = ({ beat, onItemPress, onCartPress }) => {
   handlePress = () => {
     onItemPress(beat.id)
   }
+  handleCart = () => {
+    onCartPress(beat.id)
+    setCart(false)
+  }
+  const [cart, setCart] = useState(true);
   let thumbnail= beat.user.profile_picture
   let imageUri = beat.images.standard_resolution.url
   let username = beat.user.full_name
@@ -40,7 +45,12 @@ const AlbumDetail = ({ beat, onItemPress } ) => {
           </Text>
         </View>
         <Right>
-          <Icon name= "md-cart" style={{ color: 'red'}} />
+          <TouchableHighlight
+          disabled={true}>
+            <Icon name= {cart ? "md-cart" : "md-checkmark"}
+             style={{ color: 'red'}}
+             onPress={this.handleCart} />
+          </TouchableHighlight>
         </Right>
       </CardItem>
     </Card>

@@ -13,3 +13,4 @@ config_keys.js
 Audio.js
 .DS_Store
 yarn.lock
+Model.js

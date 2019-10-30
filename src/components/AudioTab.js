@@ -8,19 +8,15 @@ import {
   PanResponder,
   ScrollView,
   Image,
-  Slider,
   TouchableOpacity
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Video } from 'expo-av';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
 
 export default class AudioTab extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
     isScrollEnabled: false,
     mute: false,
@@ -107,7 +103,7 @@ export default class AudioTab extends React.Component {
     let title = beat.caption.text.split('|')[0].replace(/\W/g, '');
     let imageUri = beat.images.standard_resolution.url;
     let videoUri = beat.videos.standard_resolution.url;
-    let artist = artist
+    let artist = beat.user.full_name
     const animatedHeight = {
       transform: this.animation.getTranslateTransform()
     }
@@ -177,6 +173,8 @@ export default class AudioTab extends React.Component {
               }}>
                 <Video
                   source={{ uri: videoUri }}
+                  usePoster = {true}
+                  posterSource={{ uri: imageUri }}
                   shouldPlay={this.state.shouldPlay}
                   resizeMode={Video.RESIZE_MODE_COVER}
                   style={{ marginVertical: 16,
@@ -231,7 +229,9 @@ export default class AudioTab extends React.Component {
               <TouchableOpacity onPress={this.handlePlayAndPause}>
                 <Ionicons name={this.state.shouldPlay ? "md-pause" : "md-play"} size={50} />
               </TouchableOpacity>
-                <Ionicons name="md-cart" size={40} />
+              <TouchableOpacity onPress={this.handleVolume}>
+                <Ionicons name={this.state.mute ? "md-volume-mute" : "md-volume-high"} size={50} />
+              </TouchableOpacity>
             </View>
           </Animated.View>
 
