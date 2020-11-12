@@ -11,7 +11,7 @@ import { API_KEY } from '../config_keys'
 
 // components for app
 const { height } = Dimensions.get("window");
-const ACCESS_TOKEN = '6787209045.dafe93c.36d90099478342788a6e8ffe7730bf6a'
+const ACCESS_TOKEN = '6787209045.dafe93c.120546725a06496f9a5f9d9884d655e5'
 
 class AlbumList extends Component {
   state = {

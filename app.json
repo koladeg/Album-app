@@ -3,7 +3,6 @@
     "name": "Album app",
     "slug": "Album-app",
     "privacy": "public",
-    "sdkVersion": "34.0.0",
     "platforms": [
       "ios",
       "android",
